@@ -8,7 +8,7 @@ public class PlayerController1 : MonoBehaviour {
     public bool can_move;
 
     private Vector2 moveVelocity;
-    private new Rigidbody2D rigidbody;
+    private Rigidbody2D rigidbody;
     private Animator animator;
     private float horizontal;
     private float vertical;

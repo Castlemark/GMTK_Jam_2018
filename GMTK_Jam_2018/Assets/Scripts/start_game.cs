@@ -6,7 +6,7 @@ public class start_game : MonoBehaviour {
 
     public void LoadStage()
     {
-        Application.LoadLevel("SampleScene");
+        Application.LoadLevel("Race");
     }
 
     public void Quit()
