@@ -14,6 +14,10 @@ public class RaceController : MonoBehaviour
     private PlayerController2 playerController2;
     private FinishTrigger trigger;
     private Animator animator;
+    private AudioSource audioData;
+    private AudioSource backgroundMusic;
+    private AudioSource sfx;
+    private bool audioHasPlayed;
 
     // Use this for initialization
     void Start() {
@@ -23,10 +27,16 @@ public class RaceController : MonoBehaviour
         trigger = GameObject.Find("finish_trigger").GetComponent<FinishTrigger>();
         timer = gameObject.GetComponent<Timer>();
         animator = GameObject.Find("win_message").GetComponent<Animator>();
+        audioData = GameObject.Find("win_message").GetComponent<AudioSource>();
+        backgroundMusic = GameObject.Find("MusicPlayer").GetComponent<AudioSource>();
+        sfx = GameObject.Find("MusicPlayer").GetComponent<AudioSource>();
 
         player = 0;
+        audioHasPlayed = false;
 
         this.Inmobilize();
+
+        backgroundMusic.Play(277830);
     }
 
     // Update is called once per frame
@@ -55,6 +65,15 @@ public class RaceController : MonoBehaviour
                     break;
             }
             animator.SetInteger("player", player);
+
+            if (!audioHasPlayed)
+            {
+                backgroundMusic.Stop();
+                sfx.Stop();
+                audioData.Play(0);
+                audioHasPlayed = true;
+            }
+           
 
             if (Input.GetKey(KeyCode.Space)) {
                 Application.LoadLevel("MainMenu");

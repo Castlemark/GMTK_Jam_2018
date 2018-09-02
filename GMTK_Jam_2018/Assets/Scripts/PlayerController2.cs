@@ -7,6 +7,7 @@ public class PlayerController2 : MonoBehaviour
 
     public float speed;
     public bool can_move;
+    public bool is_slipping;
 
     private Vector2 moveVelocity;
     private Rigidbody2D rigidbody;
@@ -14,6 +15,7 @@ public class PlayerController2 : MonoBehaviour
     private float horizontal;
     private float vertical;
     private int directionality;
+    
 
     // Use this for initialization
     void Start() {
@@ -26,34 +28,43 @@ public class PlayerController2 : MonoBehaviour
     // Update is called once per frame
     void Update() {
 
-        directionality = 0;
-        this.ResetValues();
-        if (can_move)
+        if (is_slipping)
         {
-            if (Input.GetKey(KeyCode.UpArrow))
+            speed = 0.3f;
+            directionality = 0;
+        }
+        else
+        {
+            speed = 0.1f;
+            directionality = 0;
+            this.ResetValues();
+            if (can_move)
             {
-                vertical = 1.0f;
-                directionality = 3;
-            }
-            else if (Input.GetKey(KeyCode.DownArrow))
-            {
-                vertical = -1.0f;
-                directionality = 4;
-            }
+                if (Input.GetKey(KeyCode.UpArrow))
+                {
+                    vertical = 1.0f;
+                    directionality = 3;
+                }
+                else if (Input.GetKey(KeyCode.DownArrow))
+                {
+                    vertical = -1.0f;
+                    directionality = 4;
+                }
 
-            if (Input.GetKey(KeyCode.RightArrow))
-            {
-                horizontal = 1.0f;
-                directionality = 1;
-            }
-            else if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                horizontal = -1.0f;
-                directionality = 2;
+                if (Input.GetKey(KeyCode.RightArrow))
+                {
+                    horizontal = 1.0f;
+                    directionality = 1;
+                }
+                else if (Input.GetKey(KeyCode.LeftArrow))
+                {
+                    horizontal = -1.0f;
+                    directionality = 2;
+                }
             }
         }
-        animator.SetInteger("Directionality", directionality);
 
+        animator.SetInteger("Directionality", directionality);
         Vector2 moveInput = new Vector2(horizontal, vertical);
         moveVelocity = moveInput.normalized * speed;
     }
