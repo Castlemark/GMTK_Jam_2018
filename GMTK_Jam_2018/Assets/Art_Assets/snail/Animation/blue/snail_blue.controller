@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: snail_blue_mix_0
+  m_Name: snail_blue
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Directionality
@@ -13,7 +13,7 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -555,7 +555,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: move_right
+  m_Name: move_right_blue
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -572,7 +572,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 93bc1031951e95642b7b5723f3307c89, type: 2}
+  m_Motion: {fileID: 7400000, guid: 461ccebb3eed3214fb28d99ebf55cbb1, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -584,7 +584,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: move_down
+  m_Name: move_down_blue
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -601,7 +601,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 214e388fe3e7f1b47b098a82787022be, type: 2}
+  m_Motion: {fileID: 7400000, guid: 5dcce52f832ad1446a2bab049cdfa496, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -613,7 +613,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: move_left
+  m_Name: move_left_blue
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -630,7 +630,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 927075960cb5c4249989ed9f2f3b8fbe, type: 2}
+  m_Motion: {fileID: 7400000, guid: ceb84e1ac7f76a441b0a89c487ba32f4, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -642,7 +642,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: idle_ right
+  m_Name: idle_ blue
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -659,7 +659,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 4939345329c29914cbfc6260d803c7c4, type: 2}
+  m_Motion: {fileID: 7400000, guid: 91af61fed79995743ac69ef5a51f4caf, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -671,7 +671,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: move_up
+  m_Name: move_up_blue
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -688,7 +688,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 666050e91e1a46c4fa91d0d1f8ae3117, type: 2}
+  m_Motion: {fileID: 7400000, guid: e745e41992e6d384fa8bcda564de678c, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

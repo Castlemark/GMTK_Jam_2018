@@ -6,47 +6,51 @@ public class PlayerController2 : MonoBehaviour
 {
 
     public float speed;
+    public bool can_move;
 
     private Vector2 moveVelocity;
     private new Rigidbody2D rigidbody;
-    private new Animator animator;
+    private Animator animator;
     private float horizontal;
     private float vertical;
     private int directionality;
 
     // Use this for initialization
-    void Start()
-    {
+    void Start() {
+        can_move = true;
+
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
 
         directionality = 0;
         this.ResetValues();
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (can_move)
         {
-            vertical = 1.0f;
-            directionality = 3;
-        }
-        else if (Input.GetKey(KeyCode.DownArrow))
-        {
-            vertical = -1.0f;
-            directionality = 4;
-        }
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                vertical = 1.0f;
+                directionality = 3;
+            }
+            else if (Input.GetKey(KeyCode.DownArrow))
+            {
+                vertical = -1.0f;
+                directionality = 4;
+            }
 
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            horizontal = 1.0f;
-            directionality = 1;
-        }
-        else if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            horizontal = -1.0f;
-            directionality = 2;
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                horizontal = 1.0f;
+                directionality = 1;
+            }
+            else if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                horizontal = -1.0f;
+                directionality = 2;
+            }
         }
         animator.SetInteger("Directionality", directionality);
 
