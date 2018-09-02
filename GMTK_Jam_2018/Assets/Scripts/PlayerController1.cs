@@ -5,16 +5,19 @@ using UnityEngine;
 public class PlayerController1 : MonoBehaviour {
 
     public float speed;
+    public bool can_move;
 
     private Vector2 moveVelocity;
     private new Rigidbody2D rigidbody;
-    private new Animator animator;
+    private Animator animator;
     private float horizontal;
     private float vertical;
     private int directionality;
 
 	// Use this for initialization
 	void Start () {
+        can_move = true;
+
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 	}
@@ -24,21 +27,29 @@ public class PlayerController1 : MonoBehaviour {
 
         directionality = 0;
         this.ResetValues();
-        if (Input.GetKey(KeyCode.W)){
-            vertical = 1.0f;
-            directionality = 3;
-        } else if (Input.GetKey(KeyCode.S)) {
-            vertical = -1.0f;
-            directionality = 4;
-        }
+        if (can_move)
+        {
+            if (Input.GetKey(KeyCode.W))
+            {
+                vertical = 1.0f;
+                directionality = 3;
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                vertical = -1.0f;
+                directionality = 4;
+            }
 
-        if (Input.GetKey(KeyCode.D)) {
-            horizontal = 1.0f;
-            directionality = 1;
-        }
-        else if (Input.GetKey(KeyCode.A)) {
-            horizontal = -1.0f;
-            directionality = 2;
+            if (Input.GetKey(KeyCode.D))
+            {
+                horizontal = 1.0f;
+                directionality = 1;
+            }
+            else if (Input.GetKey(KeyCode.A))
+            {
+                horizontal = -1.0f;
+                directionality = 2;
+            }
         }
         animator.SetInteger("Directionality", directionality);
 
