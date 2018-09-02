@@ -8,10 +8,12 @@ public class RaceController : MonoBehaviour
 
     private Timer timer;
     private float elapsedTime;
+    private int player;
 
     private PlayerController1 playerController1;
     private PlayerController2 playerController2;
     private FinishTrigger trigger;
+    private Animator animator;
 
     // Use this for initialization
     void Start() {
@@ -20,6 +22,9 @@ public class RaceController : MonoBehaviour
         playerController2 = GameObject.Find("player_2").GetComponent<PlayerController2>();
         trigger = GameObject.Find("finish_trigger").GetComponent<FinishTrigger>();
         timer = gameObject.GetComponent<Timer>();
+        animator = GameObject.Find("win_message").GetComponent<Animator>();
+
+        player = 0;
 
         this.Inmobilize();
     }
@@ -40,12 +45,19 @@ public class RaceController : MonoBehaviour
             switch (trigger.victorious_player)
             {
                 case 1:
+                    player = 1;
                     Debug.Log("Player 1 wins!");
                     break;
 
                 case 2:
+                    player = 2;
                     Debug.Log("Player 2 wins!");
                     break;
+            }
+            animator.SetInteger("player", player);
+
+            if (Input.GetKey(KeyCode.Space)) {
+                Application.LoadLevel("MainMenu");
             }
         }
     }
