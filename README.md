@@ -5,7 +5,7 @@
 
 This game was created in 48 hours during the Game Maker's Toolkit's Game Jam 2018 event hosted by _Mark Brown_. The competition's theme was _"GENRE, but you can't MECHANIC"_.
 
-_Grand Snal Prix_ is a local 1v1 racing game **without speed**. Whithout this annoying mechanic, players will have more time to think which strategy should they follow to win the race and avoid obstacles.
+_Grand Snail Prix_ is a local 1v1 racing game **without speed**. Whithout this annoying mechanic, players will have more time to think which strategy should they follow to win the race and avoid obstacles.
 
 ### Controls
 
@@ -39,7 +39,7 @@ You will need a few seconds to eat it all, but then your snail will recive a rem
 
 #### Popcorn - ![alt text](GMTK_Jam_2018/Assets/Art_Assets/obstacles/popcorn.png "Logo Title Text 1")
 
-Your snail will also eat he is close enough. Although, this will make your snail move even slower.
+Your snail will also eat it if he is close enough. Although, this will make your snail move even slower.
 
 #### Oil stain - ![alt text](GMTK_Jam_2018/Assets/Art_Assets/obstacles/oil.png "Logo Title Text 1")
 
@@ -58,7 +58,7 @@ We are a couple of third-year students of Multimedia Engineering in La Salle, Un
 
 We are specializing our degree in videogame design, and we found that Game Jams are a great opportunity to test our skills.
 
-We are pretty proud of what we have done. _Grand Snail Prix_ introduce some interesting mechanincs into racing games.
+We are pretty proud of what we have done. _Grand Snail Prix_ introduces some interesting mechanincs into racing games.
 
 ### Licenses
 
