@@ -6,6 +6,11 @@ public class PlayerController1 : MonoBehaviour {
 
     public float speed;
     public bool can_move;
+    public bool eats_leaf;
+    public bool eats_popcorn;
+
+    private float leaf_bonus;
+    private float popcorn_penalty;
 
     private Vector2 moveVelocity;
     private Rigidbody2D rigidbody;
@@ -17,6 +22,11 @@ public class PlayerController1 : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         can_move = true;
+        eats_leaf = false;
+        eats_popcorn = false;
+
+        leaf_bonus = 1f;
+        popcorn_penalty = 1f;
 
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -53,8 +63,15 @@ public class PlayerController1 : MonoBehaviour {
         }
         animator.SetInteger("Directionality", directionality);
 
+        if (eats_leaf) {
+            StartCoroutine(leafWait());
+        }
+        if (eats_popcorn) {
+            StartCoroutine(popcornWait());
+        }
+
         Vector2 moveInput = new Vector2(horizontal, vertical);
-        moveVelocity = moveInput.normalized * speed;
+        moveVelocity = moveInput.normalized * speed * leaf_bonus * popcorn_penalty;
     }
 
     void FixedUpdate(){
@@ -67,7 +84,7 @@ public class PlayerController1 : MonoBehaviour {
         vertical = 0.0f;
     }
 
-    private void Inmobilize()
+    public void Inmobilize()
     {
         this.can_move = false;
     }
@@ -75,5 +92,33 @@ public class PlayerController1 : MonoBehaviour {
     public void Mobilize()
     {
         this.can_move = true;
+    }
+
+    public void stunLock()
+    {
+        StartCoroutine(stunWait());
+    }
+
+    IEnumerator leafWait()
+    {
+        leaf_bonus = 2.0f;
+        yield return new WaitForSeconds(6);
+        leaf_bonus = 1.0f;
+        eats_leaf = false;
+    }
+
+    IEnumerator popcornWait()
+    {
+        popcorn_penalty = 0.5f;
+        yield return new WaitForSeconds(6);
+        popcorn_penalty = 1.0f;
+        eats_popcorn = false;
+    }
+
+    IEnumerator stunWait()
+    {
+        this.Inmobilize();
+        yield return new WaitForSeconds(3);
+        this.Mobilize();
     }
 }
