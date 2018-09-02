@@ -14,7 +14,7 @@ public class OilObstacle : MonoBehaviour {
         if (other.name.Equals("player_1"))
         {
             playerController1 = GameObject.Find("player_1").GetComponent<PlayerController1>();
-            //playerController1.is_slipping = true;
+            playerController1.is_slipping = true;
         }
         else
         {
@@ -30,7 +30,7 @@ public class OilObstacle : MonoBehaviour {
         if (collision.name.Equals("player_1"))
         {
             playerController1 = GameObject.Find("player_1").GetComponent<PlayerController1>();
-            //playerController1.is_slipping = false;
+            playerController1.is_slipping = false;
         }
         else
         {

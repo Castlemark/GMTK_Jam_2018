@@ -18,6 +18,7 @@ public class RaceController : MonoBehaviour
     private AudioSource backgroundMusic;
     private AudioSource sfx;
     private bool audioHasPlayed;
+    private bool first;
 
     // Use this for initialization
     void Start() {
@@ -33,8 +34,7 @@ public class RaceController : MonoBehaviour
 
         player = 0;
         audioHasPlayed = false;
-
-        StartCoroutine(startWait());
+        first = false;
 
         backgroundMusic.Play(277830);
     }
@@ -42,6 +42,11 @@ public class RaceController : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        this.Mobilize();
+        if (timer.GetElapsedTime() < 5.0f)
+        {
+            this.Inmobilize();
+        }
 
         if (trigger.SomeoneHasFinished()) {
             this.Inmobilize();
@@ -76,19 +81,12 @@ public class RaceController : MonoBehaviour
     }
 
     public void Inmobilize() {
-        playerController1.can_move = false;
-        playerController2.can_move = false;
+        playerController1.allowed_move = false;
+        playerController2.allowed_move = false;
     }
 
     public void Mobilize() {
-        playerController1.can_move = true;
-        playerController2.can_move = true;
-    }
-
-    IEnumerator startWait()
-    {
-        this.Inmobilize();
-        yield return new WaitForSeconds(countdown_time);
-        this.Mobilize();
+        playerController1.allowed_move = true;
+        playerController2.allowed_move = true;
     }
 }
