@@ -68,4 +68,14 @@ public class PlayerController2 : MonoBehaviour
         horizontal = 0.0f;
         vertical = 0.0f;
     }
+
+    private void Inmobilize()
+    {
+        this.can_move = false;
+    }
+
+    public void Mobilize()
+    {
+        this.can_move = true;
+    }
 }
