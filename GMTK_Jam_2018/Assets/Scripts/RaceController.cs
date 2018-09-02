@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RaceController : MonoBehaviour
 {
+    public float countdown_time;
+
     private Timer timer;
     private float elapsedTime;
 
@@ -28,7 +30,7 @@ public class RaceController : MonoBehaviour
 
         this.Mobilize();
         elapsedTime = timer.GetElapsedTime();
-        if (elapsedTime < 3.0f) {
+        if (elapsedTime < countdown_time) {
             this.Inmobilize();
         }
 
