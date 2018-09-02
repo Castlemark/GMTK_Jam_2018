@@ -19,7 +19,7 @@ public class LeafObstacle : MonoBehaviour {
             playerController1.Inmobilize();
             playerController1.eats_leaf = true;
         } else {
-            //playerController2.eats_leaf = true;
+            playerController2.eats_leaf = true;
             playerController2.Inmobilize();
         }
         StartCoroutine(waitAndDestroy());

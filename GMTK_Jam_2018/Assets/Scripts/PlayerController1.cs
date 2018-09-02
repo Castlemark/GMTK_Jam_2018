@@ -6,8 +6,10 @@ public class PlayerController1 : MonoBehaviour {
 
     public float speed;
     public bool can_move;
+    public bool allowed_move;
     public bool eats_leaf;
     public bool eats_popcorn;
+    public bool is_slipping;
 
     private float leaf_bonus;
     private float popcorn_penalty;
@@ -22,6 +24,7 @@ public class PlayerController1 : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         can_move = true;
+        allowed_move = true;
         eats_leaf = false;
         eats_popcorn = false;
 
@@ -35,33 +38,41 @@ public class PlayerController1 : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        directionality = 0;
-        this.ResetValues();
-        if (can_move)
+        if (is_slipping)
         {
-            if (Input.GetKey(KeyCode.W))
+            speed = 0.3f;
+            directionality = 0;
+        }
+        else
+        {
+            speed = 0.1f;
+            directionality = 0;
+            this.ResetValues();
+            if (can_move && allowed_move)
             {
-                vertical = 1.0f;
-                directionality = 3;
-            }
-            else if (Input.GetKey(KeyCode.S))
-            {
-                vertical = -1.0f;
-                directionality = 4;
-            }
+                if (Input.GetKey(KeyCode.W))
+                {
+                    vertical = 1.0f;
+                    directionality = 3;
+                }
+                else if (Input.GetKey(KeyCode.S))
+                {
+                    vertical = -1.0f;
+                    directionality = 4;
+                }
 
-            if (Input.GetKey(KeyCode.D))
-            {
-                horizontal = 1.0f;
-                directionality = 1;
-            }
-            else if (Input.GetKey(KeyCode.A))
-            {
-                horizontal = -1.0f;
-                directionality = 2;
+                if (Input.GetKey(KeyCode.D))
+                {
+                    horizontal = 1.0f;
+                    directionality = 1;
+                }
+                else if (Input.GetKey(KeyCode.A))
+                {
+                    horizontal = -1.0f;
+                    directionality = 2;
+                }
             }
         }
-        animator.SetInteger("Directionality", directionality);
 
         if (eats_leaf) {
             StartCoroutine(leafWait());
@@ -70,6 +81,7 @@ public class PlayerController1 : MonoBehaviour {
             StartCoroutine(popcornWait());
         }
 
+        animator.SetInteger("Directionality", directionality);
         Vector2 moveInput = new Vector2(horizontal, vertical);
         moveVelocity = moveInput.normalized * speed * leaf_bonus * popcorn_penalty;
     }

@@ -14,6 +14,11 @@ public class RaceController : MonoBehaviour
     private PlayerController2 playerController2;
     private FinishTrigger trigger;
     private Animator animator;
+    private AudioSource audioData;
+    private AudioSource backgroundMusic;
+    private AudioSource sfx;
+    private bool audioHasPlayed;
+    private bool first;
 
     // Use this for initialization
     void Start() {
@@ -23,15 +28,25 @@ public class RaceController : MonoBehaviour
         trigger = GameObject.Find("finish_trigger").GetComponent<FinishTrigger>();
         timer = gameObject.GetComponent<Timer>();
         animator = GameObject.Find("win_message").GetComponent<Animator>();
+        audioData = GameObject.Find("win_message").GetComponent<AudioSource>();
+        backgroundMusic = GameObject.Find("MusicPlayer").GetComponent<AudioSource>();
+        sfx = GameObject.Find("MusicPlayer").GetComponent<AudioSource>();
 
         player = 0;
+        audioHasPlayed = false;
+        first = false;
 
-        StartCoroutine(startWait());
+        backgroundMusic.Play(277830);
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
+        this.Mobilize();
+        if (timer.GetElapsedTime() < 5.0f)
+        {
+            this.Inmobilize();
+        }
 
         if (trigger.SomeoneHasFinished()) {
             this.Inmobilize();
@@ -50,6 +65,15 @@ public class RaceController : MonoBehaviour
             }
             animator.SetInteger("player", player);
 
+            if (!audioHasPlayed)
+            {
+                backgroundMusic.Stop();
+                sfx.Stop();
+                audioData.Play(0);
+                audioHasPlayed = true;
+            }
+           
+
             if (Input.GetKey(KeyCode.Space)) {
                 Application.LoadLevel("MainMenu");
             }
@@ -57,19 +81,12 @@ public class RaceController : MonoBehaviour
     }
 
     public void Inmobilize() {
-        playerController1.can_move = false;
-        playerController2.can_move = false;
+        playerController1.allowed_move = false;
+        playerController2.allowed_move = false;
     }
 
     public void Mobilize() {
-        playerController1.can_move = true;
-        playerController2.can_move = true;
-    }
-
-    IEnumerator startWait()
-    {
-        this.Inmobilize();
-        yield return new WaitForSeconds(countdown_time);
-        this.Mobilize();
+        playerController1.allowed_move = true;
+        playerController2.allowed_move = true;
     }
 }

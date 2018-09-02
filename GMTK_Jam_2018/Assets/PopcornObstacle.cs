@@ -22,7 +22,7 @@ public class PopcornObstacle : MonoBehaviour {
         }
         else
         {
-            //playerController2.eats_popcorn = true;
+            playerController2.eats_popcorn = true;
             playerController2.Inmobilize();
         }
         StartCoroutine(waitAndDestroy());
