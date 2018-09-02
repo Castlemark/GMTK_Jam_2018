@@ -34,7 +34,7 @@ public class StompObstacle : MonoBehaviour {
             {
                 playerController1.stunLock();
             } else {
-                //playerController2.stunLock();
+                playerController2.stunLock();
             }
         }
     }
