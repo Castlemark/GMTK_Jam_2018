@@ -584,9 +584,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86f4e86e245e0324ba4fa207cc1c6612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distance_h: 2.377
+  distance_v: 1.28
   stompObject: {fileID: 1264246766075356, guid: 0976a577ebc4edb4e86548354487a971,
     type: 2}
   stompRate: 5
+  rockObject: {fileID: 0}
+  rockRate: 10
+  oilObject: {fileID: 0}
+  oilRate: 10
+  leafObject: {fileID: 0}
+  leafRate: 10
+  popcornObject: {fileID: 0}
+  popcornRate: 10
 --- !u!114 &1165128199
 MonoBehaviour:
   m_ObjectHideFlags: 0
