@@ -80,7 +80,7 @@ public class PlayerController2 : MonoBehaviour
         vertical = 0.0f;
     }
 
-    private void Inmobilize()
+    public void Inmobilize()
     {
         this.can_move = false;
     }

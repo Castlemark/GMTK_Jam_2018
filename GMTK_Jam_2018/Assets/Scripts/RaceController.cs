@@ -34,7 +34,7 @@ public class RaceController : MonoBehaviour
         player = 0;
         audioHasPlayed = false;
 
-        this.Inmobilize();
+        StartCoroutine(startWait());
 
         backgroundMusic.Play(277830);
     }
@@ -42,12 +42,6 @@ public class RaceController : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-
-        this.Mobilize();
-        elapsedTime = timer.GetElapsedTime();
-        if (elapsedTime < countdown_time) {
-            this.Inmobilize();
-        }
 
         if (trigger.SomeoneHasFinished()) {
             this.Inmobilize();
@@ -89,5 +83,12 @@ public class RaceController : MonoBehaviour
     public void Mobilize() {
         playerController1.can_move = true;
         playerController2.can_move = true;
+    }
+
+    IEnumerator startWait()
+    {
+        this.Inmobilize();
+        yield return new WaitForSeconds(countdown_time);
+        this.Mobilize();
     }
 }
