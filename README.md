@@ -1,4 +1,7 @@
-# GRAND SNAIL PRIX
+
+<p align="center"> <img width="350" src="GMTK_Jam_2018/Assets/Art_Assets/ui/title.png"> </p>
+
+## GRAND SNAIL PRIX
 #### _a Lorem Ipsum game_
 
 ***
@@ -20,7 +23,7 @@ When the race finishes, you can go back to menu by pressing _Spacebar_
 
 #### In game
 
-| | Player 1 (Blue) | Player 2 (Green)  |
+|Direction | Player 1 (Blue) | Player 2 (Green)  |
 | --------- |:-:| -----------:|
 | Move right| D | Arrow right |
 | Move up   | W | Arrow right |
