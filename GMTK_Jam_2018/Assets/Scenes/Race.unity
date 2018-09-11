@@ -589,13 +589,14 @@ MonoBehaviour:
   stompObject: {fileID: 1264246766075356, guid: 0976a577ebc4edb4e86548354487a971,
     type: 2}
   stompRate: 5
-  rockObject: {fileID: 0}
+  rockObject: {fileID: 1305780980665718, guid: 8f7fb98b95d04ac41b2217162f451945, type: 2}
   rockRate: 10
-  oilObject: {fileID: 0}
+  oilObject: {fileID: 1188959682309718, guid: 1bf7577e316c387468dfd329adf99c50, type: 2}
   oilRate: 10
-  leafObject: {fileID: 0}
+  leafObject: {fileID: 1003417229881600, guid: d14fac307e5d97a4bbbdd96f662255ec, type: 2}
   leafRate: 10
-  popcornObject: {fileID: 0}
+  popcornObject: {fileID: 1501926810307508, guid: d6e25679249274549b44cc096df61655,
+    type: 2}
   popcornRate: 10
 --- !u!114 &1165128199
 MonoBehaviour:

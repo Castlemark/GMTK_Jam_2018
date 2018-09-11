@@ -18,7 +18,6 @@ public class RaceController : MonoBehaviour
     private AudioSource backgroundMusic;
     private AudioSource sfx;
     private bool audioHasPlayed;
-    private bool first;
 
     // Use this for initialization
     void Start() {
@@ -34,7 +33,6 @@ public class RaceController : MonoBehaviour
 
         player = 0;
         audioHasPlayed = false;
-        first = false;
 
         backgroundMusic.Play(277830);
     }
